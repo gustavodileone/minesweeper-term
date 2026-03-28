@@ -596,7 +596,7 @@ leaderboard* get_leaderboard(int* n) {
     rewind(f);
     leaderboard* lboards = (leaderboard*) malloc(sizeof(leaderboard) * (*n));
 
-    for(int i = (*n) - 1; i >= 0; i--) {
+    for(int i = 0; i < (*n); i++) {
         fread(&lead, sizeof(leaderboard), 1, f);
         lboards[i] = lead;
     }
