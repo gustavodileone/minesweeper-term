@@ -470,7 +470,7 @@ void select_minesweeper_slot(minesweeper* game, int* row, int* col) {
 
             clear_screen();
             print_minesweeper_map(game);
-            printf("Decisao invalida.\r\n");
+            printf("Decisão inválida.\r\n");
             s = 0;
             continue;
         }
@@ -482,7 +482,7 @@ void select_minesweeper_slot(minesweeper* game, int* row, int* col) {
 
             clear_screen();
             print_minesweeper_map(game);
-            printf("Decisao invalida.\r\n");
+            printf("Decisão inválida.\r\n");
             s = 0;
             continue;
         }
@@ -619,7 +619,7 @@ void destroy_leaderboard(leaderboard* lead) {
  */
 void print_menu_leaderboard(leaderboard* leads, int n) {
     for(int i = 0; i < n; i++) {
-        printf("Condicao: [%s]\r\nDificuldade: %s\r\nTempo de jogo: %lds\r\nEspaços restantes: %d\r\n", 
+        printf("Condição: [%s]\r\nDificuldade: %s\r\nTempo de jogo: %lds\r\nEspaços restantes: %d\r\n", 
             minesweeper_status_string(leads[i].status),
             minesweeper_difficulty_string(leads[i].difficulty),
             leads[i].time,
@@ -659,8 +659,8 @@ void menu_leaderboard() {
  */
 void print_menu_start_game() {
     printf("Minesweeper - Selecione a dificuldade\r\n");
-    printf("1) Facil\r\n");
-    printf("2) Medio\r\n");
+    printf("1) Fácil\r\n");
+    printf("2) Médio\r\n");
     printf("3) Voltar\r\n");
 }
 
@@ -689,7 +689,7 @@ void menu_start_game() {
             default:
                 clear_screen();
                 print_menu_start_game();
-                printf("Opcao invalida.\r\n");
+                printf("Opção inválida.\r\n");
                 c = 0;
             break;
         }
@@ -735,7 +735,7 @@ void menu_main() {
             default:
                 clear_screen();
                 print_main_menu();
-                printf("Opcao invalida.\r\n");
+                printf("Opção inválida.\r\n");
                 c = 0;
             break;
         }
@@ -743,6 +743,10 @@ void menu_main() {
 }
 
 int main() {
+#ifdef _WIN32
+    SetConsoleOutputCP(65001);
+    SetConsoleCP(65001);
+#endif
     srand(time(NULL));
     menu_main();
     return EXIT_SUCCESS;
