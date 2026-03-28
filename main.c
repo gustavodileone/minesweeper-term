@@ -607,6 +607,9 @@ leaderboard* get_leaderboard(int* n) {
 
 /**
  * destroy_leaderboard - Função que desaloca o array do placar.
+ * 
+ * @lead: Array de leaderboard allocado dinamicamente
+ * Return: void
  */
 void destroy_leaderboard(leaderboard* lead) {
     free(lead);
@@ -615,6 +618,8 @@ void destroy_leaderboard(leaderboard* lead) {
 /**
  * print_menu_leaderboard - Printa o menu de placar
  * 
+ * @leads: Array com structs do leaderboard preenchidos
+ * @n: Tamanho do array
  * Return: void
  */
 void print_menu_leaderboard(leaderboard* leads, int n) {
